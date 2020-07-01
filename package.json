@@ -1,0 +1,46 @@
+{
+  "name": "react-demo-calendar",
+  "version": "1.0.3",
+  "description": "create simple calendar compent on react",
+  "keywords": [],
+  "main": "dist/main.js",
+  "private": false,
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "moment": "2.22.2",
+    "react": "16.12.0",
+    "moment-range": "4.0.1",
+    "react-dom": "16.12.0",
+    "react-router": "^5.2.0",
+    "react-scripts": "2.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/preset-react": "^7.10.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "publish:npm": "rm -rf dist && mkdir dist && babel src -d dist --copy-files"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gunjan4455/React-country-select"
+  }
+}
