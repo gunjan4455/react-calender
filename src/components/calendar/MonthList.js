@@ -1,53 +1,40 @@
 import React from "react";
 
-const MonthList = ({data, setMonth}) => {
-    let months = [];
-    data.map(data => {
-        months.push(
-            <td
-                key={`month_${data}`}
-                className="calendar-month"
-                onClick={e => {
-                    setMonth(data);
-                }}
-            >
-                <span>{data}</span>
-            </td>
-        );
+class MonthList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      defaultMonth: props.defaultMonth
+    }
+  }
+
+  getMonthsList = () => {
+    const { data, setMonth } = this.props;
+    const list = [];
+    data.map(item => {
+      list.push(
+        <option key={item} onClick={() => setMonth(item)} value={item}>{item}</option>
+      );
     });
-    let rows = [];
-    let cells = [];
+    return list;
+  };
 
-    months.forEach((row, i) => {
-        if (i % 3 !== 0 || i === 0) {
-            cells.push(row);
-        } else {
-            rows.push(cells);
-            cells = [];
-            cells.push(row);
-        }
-    });
+  handleChange = (e) => {
+    const month = e.target.value;
+    this.setState({ defaultMonth: month });
+    this.props.setMonth(month);
+  };
 
-    rows.push(cells);
-
-    let monthlist = rows.map((row, i) => {
-        return <tr key={`month_row_${i}`}>{row}</tr>;
-    });
-
-    const showMonth = (month) => {
-        console.log('month-------', month);
-    };
-
+  render() {
     return (
-        <table className="calendar-month">
-            <thead>
-            <tr>
-                <th colSpan="4">Select a Month</th>
-            </tr>
-            </thead>
-            <tbody>{monthlist}</tbody>
-        </table>
+      <select
+        value={this.state.defaultMonth}
+        onChange={this.handleChange}
+      >
+        {this.getMonthsList()}
+      </select>
     );
+  }
 };
 
 export default MonthList;
