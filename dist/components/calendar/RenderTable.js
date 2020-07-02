@@ -25,17 +25,15 @@ const RenderTable = ({
   let daysInMonth = [];
 
   for (let d = 1; d <= getDaysInMonth(dateObject); d++) {
-    console.log(d, selectedDay, d == selectedDay);
     let currentDay = d == getCurrentDay(dateObject) ? 'today' : '';
     let selectedClass = d == selectedDay ? 'selectedDay' : '';
     daysInMonth.push( /*#__PURE__*/React.createElement("td", {
       key: `td_${d}`,
-      className: `calendar-day ${currentDay} ${selectedClass}`
-    }, /*#__PURE__*/React.createElement("span", {
+      className: `calendar-day ${currentDay} ${selectedClass}`,
       onClick: e => {
         onDayClick(e, d);
       }
-    }, d)));
+    }, /*#__PURE__*/React.createElement("span", null, d)));
   }
 
   var totalSlots = [...blanks, ...daysInMonth];

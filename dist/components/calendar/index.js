@@ -17,7 +17,8 @@ export default class Calendar extends React.Component {
       let dateObject = Object.assign({}, this.state.dateObject);
       dateObject = moment(dateObject).set("month", monthNo);
       this.setState({
-        dateObject: dateObject
+        dateObject: dateObject,
+        defaultMonth: month
       });
       this.props.setDate && this.props.setDate(dateObject);
     });
@@ -38,18 +39,23 @@ export default class Calendar extends React.Component {
       let dateObject = Object.assign({}, this.state.dateObject);
       dateObject = moment(dateObject).set("year", year);
       this.setState({
-        dateObject: dateObject
+        dateObject: dateObject,
+        defaultYear: year
       });
       this.props.setDate && this.props.setDate(dateObject);
     });
 
     _defineProperty(this, "onDayClick", (e, d) => {
+      const {
+        defaultYear,
+        defaultMonth
+      } = this.state;
       this.setState({
         selectedDay: d
       }, () => {
-        console.log("SELECTED DAY: ", this.state.selectedDay);
+        console.log("SELECTED DATE: ", moment(`${d},${defaultMonth},${defaultYear}`));
       });
-      this.props.setDate && this.props.setDate(this.state.dateObject);
+      this.props.setDate && this.props.setDate(moment(`${d},${defaultMonth},${defaultYear}`));
     });
 
     const date = props.dateObject || moment();
