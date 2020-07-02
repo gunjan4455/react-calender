@@ -147,14 +147,33 @@
   color: #25927c;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *.today:after {
-  border-color: #25927c;
+  border-color: #39c6aa;
 }
+
 .tail-datetime-calendar .calendar-date table tbody tr > *:hover {
   color: #25927c;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *:hover:after {
   border-color: #25927c;
 }
+
+.tail-datetime-calendar .calendar-date table tbody tr > *.selectedClass {
+  color: #25927c;
+}
+
+.tail-datetime-calendar .calendar-date table tbody tr > *.selectedClass:after {
+  border-color: #25927c !important;
+}
+
+td.calendar-day.selectedDay:after {
+  background: #39c6aa;
+  color: #fff !important;
+}
+td.calendar-day.selectedDay span {
+  background: #39c6aa;
+  color: #fff !important;
+}
+
 .tail-datetime-calendar .calendar-date table tbody tr > *.empty,
 .tail-datetime-calendar .calendar-date table tbody tr > *.disable {
   color: #8899aa;

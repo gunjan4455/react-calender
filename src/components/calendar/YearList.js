@@ -11,6 +11,15 @@ class YearList extends React.Component {
     }
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.defaultYear !== state.defaultYear) {
+      return {
+        defaultYear: props.defaultYear,
+      };
+    }
+    return null;
+  }
+
   getYearsList = () => {
     const { defaultYear, setYear } = this.props;
     const nextten = moment()

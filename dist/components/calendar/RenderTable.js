@@ -5,7 +5,8 @@ import { getCurrentDay, getDaysInMonth, getFirstDayOfMonth } from "../../utils";
 const RenderTable = ({
   dateObject,
   onDayClick,
-  onPrevNext
+  onPrevNext,
+  selectedDay
 }) => {
   let blanks = [];
   let startBlank = moment(dateObject).subtract(1, 'months').endOf('month').format('D');
@@ -24,10 +25,12 @@ const RenderTable = ({
   let daysInMonth = [];
 
   for (let d = 1; d <= getDaysInMonth(dateObject); d++) {
+    console.log(d, selectedDay, d == selectedDay);
     let currentDay = d == getCurrentDay(dateObject) ? 'today' : '';
+    let selectedClass = d == selectedDay ? 'selectedDay' : '';
     daysInMonth.push( /*#__PURE__*/React.createElement("td", {
       key: `td_${d}`,
-      className: `calendar-day ${currentDay}`
+      className: `calendar-day ${currentDay} ${selectedClass}`
     }, /*#__PURE__*/React.createElement("span", {
       onClick: e => {
         onDayClick(e, d);

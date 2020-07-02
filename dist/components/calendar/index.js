@@ -107,7 +107,8 @@ export default class Calendar extends React.Component {
       weekDayShortName: weekDayShortName(dateObject),
       dateObject: dateObject,
       onDayClick: this.onDayClick,
-      onPrevNext: this.onPrevNext
+      onPrevNext: this.onPrevNext,
+      selectedDay: this.state.selectedDay
     }));
   }
 

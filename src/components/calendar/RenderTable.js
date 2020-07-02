@@ -22,14 +22,13 @@ const RenderTable = ({ dateObject, onDayClick, onPrevNext, selectedDay }) => {
   }
   let daysInMonth = [];
   for (let d = 1; d <= getDaysInMonth(dateObject); d++) {
-    console.log(d,selectedDay, d==selectedDay);
     let currentDay = d == getCurrentDay(dateObject)  ? 'today' : '';
     let selectedClass = d == selectedDay ? 'selectedDay' : '';
     daysInMonth.push(
-      <td key={`td_${d}`} className={`calendar-day ${currentDay} ${selectedClass}`}>
-                <span onClick={e => {
-                  onDayClick(e, d);
-                }}>{d}</span>
+      <td key={`td_${d}`} className={`calendar-day ${currentDay} ${selectedClass}`} onClick={e => {
+        onDayClick(e, d);
+      }}>
+                <span>{d}</span>
       </td>
     );
   }

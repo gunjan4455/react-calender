@@ -5,7 +5,8 @@ const CalendarTable = ({
   weekDayShortName,
   dateObject,
   onDayClick,
-  onPrevNext
+  onPrevNext,
+  selectedDay
 }) => {
   return /*#__PURE__*/React.createElement("div", {
     className: "calendar-date"
@@ -15,7 +16,8 @@ const CalendarTable = ({
     key: dateObject,
     dateObject: dateObject,
     onDayClick: onDayClick,
-    onPrevNext: onPrevNext
+    onPrevNext: onPrevNext,
+    selectedDay: selectedDay
   }))));
 };
 

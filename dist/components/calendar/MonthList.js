@@ -35,6 +35,16 @@ class MonthList extends React.Component {
     };
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.defaultMonth !== state.defaultMonth) {
+      return {
+        defaultMonth: props.defaultMonth
+      };
+    }
+
+    return null;
+  }
+
   render() {
     return /*#__PURE__*/React.createElement("select", {
       size: "1",
