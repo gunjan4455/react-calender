@@ -63,15 +63,16 @@ export default class Calendar extends React.Component {
   };
 
   onDayClick = (e, d) => {
+    const { defaultYear, defaultMonth } = this.state;
     this.setState(
       {
-        selectedDay: d
+        selectedDay: d,
       },
       () => {
-        console.log("SELECTED DAY: ", this.state.selectedDay);
+        console.log("SELECTED DATE: ", moment(`${d},${defaultMonth},${defaultYear}`));
       }
     );
-    this.props.setDate && this.props.setDate(this.state.dateObject);
+    this.props.setDate && this.props.setDate(moment(`${d},${defaultMonth},${defaultYear}`));
   };
 
   render() {
