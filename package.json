@@ -1,6 +1,6 @@
 {
   "name": "react-demo-calendar",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "create simple calendar compent on react",
   "keywords": [],
   "main": "dist/main.js",
