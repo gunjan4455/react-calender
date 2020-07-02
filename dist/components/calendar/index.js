@@ -5,62 +5,42 @@ import moment from "moment";
 import { range } from "moment-range";
 import { getYear, getMonth, weekDayShortName } from '../../utils';
 import MonthList from './MonthList';
-import YearTable from './YearTable';
+import YearList from './YearList';
 import CalendarTable from './CalendarTable';
 import "./calendar.css";
 export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
 
-    _defineProperty(this, "showMonth", (e, month) => {
-      this.setState({
-        showMonthTable: !this.state.showMonthTable,
-        showCalendarTable: !this.state.showCalendarTable
-      });
-    });
-
     _defineProperty(this, "setMonth", month => {
       let monthNo = this.state.allmonths.indexOf(month);
       let dateObject = Object.assign({}, this.state.dateObject);
       dateObject = moment(dateObject).set("month", monthNo);
       this.setState({
-        dateObject: dateObject,
-        showMonthTable: !this.state.showMonthTable,
-        showCalendarTable: !this.state.showCalendarTable
+        dateObject: dateObject
       });
-      this.props.setDate(dateObject);
-    });
-
-    _defineProperty(this, "showYearEditor", () => {
-      this.setState({
-        showYearNav: true,
-        showCalendarTable: !this.state.showCalendarTable
-      });
+      this.props.setDate && this.props.setDate(dateObject);
     });
 
     _defineProperty(this, "onPrevNext", isNext => {
       const {
-        dateObject,
-        showMonthTable
+        dateObject
       } = this.state;
-      const curr = showMonthTable ? 'year' : 'month';
       this.setState({
-        dateObject: isNext ? dateObject.add(1, curr) : dateObject.subtract(1, curr)
+        dateObject: isNext ? dateObject.add(1, 'month') : dateObject.subtract(1, 'month'),
+        defaultMonth: getMonth(dateObject),
+        defaultYear: getYear(dateObject)
       });
+      this.props.setDate && this.props.setDate(dateObject);
     });
 
     _defineProperty(this, "setYear", year => {
       let dateObject = Object.assign({}, this.state.dateObject);
       dateObject = moment(dateObject).set("year", year);
       this.setState({
-        dateObject: dateObject,
-        showMonthTable: !this.state.showMonthTable,
-        showYearNav: !this.state.showYearNav
+        dateObject: dateObject
       });
-    });
-
-    _defineProperty(this, "onYearChange", e => {
-      this.setYear(e.target.value);
+      this.props.setDate && this.props.setDate(dateObject);
     });
 
     _defineProperty(this, "onDayClick", (e, d) => {
@@ -69,16 +49,16 @@ export default class Calendar extends React.Component {
       }, () => {
         console.log("SELECTED DAY: ", this.state.selectedDay);
       });
+      this.props.setDate && this.props.setDate(this.state.dateObject);
     });
 
-    console.log('props-----', props, props.dateObject, moment());
+    const date = props.dateObject || moment();
     this.state = {
-      showCalendarTable: true,
-      showMonthTable: false,
-      dateObject: props.dateObject || moment(),
+      dateObject: date,
       allmonths: moment.months(),
-      showYearNav: false,
-      selectedDay: null
+      selectedDay: null,
+      defaultMonth: getMonth(date),
+      defaultYear: getYear(date)
     };
   }
 
@@ -93,9 +73,10 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    console.log('kkkkkkk', this.state);
     const {
-      dateObject
+      dateObject,
+      defaultMonth,
+      defaultYear
     } = this.state;
     return /*#__PURE__*/React.createElement("div", {
       className: "tail-datetime-calendar"
@@ -106,30 +87,23 @@ export default class Calendar extends React.Component {
         this.onPrevNext(false);
       },
       className: "calendar-button button-prev"
-    }), !this.state.showMonthTable && !this.state.showYearEditor && /*#__PURE__*/React.createElement("span", {
-      onClick: e => {
-        this.showMonth();
-      },
+    }), /*#__PURE__*/React.createElement("span", {
       className: "calendar-label"
-    }, getMonth(dateObject), ","), /*#__PURE__*/React.createElement("span", {
-      className: "calendar-label",
-      onClick: e => {
-        this.showYearEditor();
-      }
-    }, getYear(this.state.dateObject)), /*#__PURE__*/React.createElement("span", {
+    }, /*#__PURE__*/React.createElement(MonthList, {
+      defaultMonth: defaultMonth,
+      data: moment.months(),
+      setMonth: this.setMonth
+    })), /*#__PURE__*/React.createElement("span", {
+      className: "calendar-label"
+    }, /*#__PURE__*/React.createElement(YearList, {
+      defaultYear: defaultYear,
+      setYear: this.setYear
+    })), /*#__PURE__*/React.createElement("span", {
       onClick: e => {
         this.onPrevNext(true);
       },
       className: "calendar-button button-next"
-    })), /*#__PURE__*/React.createElement("div", {
-      className: "calendar-date"
-    }, this.state.showYearNav && /*#__PURE__*/React.createElement(YearTable, {
-      currYear: getYear(dateObject),
-      setYear: this.setYear
-    }), this.state.showMonthTable && /*#__PURE__*/React.createElement(MonthList, {
-      data: moment.months(),
-      setMonth: this.setMonth
-    })), this.state.showCalendarTable && /*#__PURE__*/React.createElement(CalendarTable, {
+    })), /*#__PURE__*/React.createElement(CalendarTable, {
       weekDayShortName: weekDayShortName(dateObject),
       dateObject: dateObject,
       onDayClick: this.onDayClick,

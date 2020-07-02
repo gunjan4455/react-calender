@@ -11,9 +11,11 @@ const RenderTable = ({
   let startBlank = moment(dateObject).subtract(1, 'months').endOf('month').format('D');
 
   for (let i = 0; i < getFirstDayOfMonth(dateObject); i++) {
-    console.log('getFirstDayOfMonth(dateObject)');
     blanks.push( /*#__PURE__*/React.createElement("td", {
-      onClick: () => onPrevNext(false),
+      onClick: e => {
+        onPrevNext(false);
+        onDayClick(e, startBlank - i);
+      },
       key: `blank_${i}`,
       className: "calendar-day empty"
     }, startBlank - i));
@@ -53,7 +55,10 @@ const RenderTable = ({
 
         for (let i = 0; i < iteration; i++) {
           cells.push( /*#__PURE__*/React.createElement("td", {
-            onClick: () => onPrevNext(true),
+            onClick: e => {
+              onPrevNext(true);
+              onDayClick(e, i + 1);
+            },
             key: `next_td_${i}`,
             className: "calendar-day empty"
           }, i + 1));
