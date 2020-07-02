@@ -27,7 +27,7 @@ class MonthList extends React.Component {
 
   render() {
     return (
-      <select
+      <select size='1'
         value={this.state.defaultMonth}
         onChange={this.handleChange}
       >

@@ -48,6 +48,7 @@ export default class Calendar extends React.Component {
       defaultMonth: getMonth(dateObject),
       defaultYear: getYear(dateObject)
     });
+    this.props.setDate && this.props.setDate(dateObject);
   };
 
   setYear = year => {
@@ -56,6 +57,7 @@ export default class Calendar extends React.Component {
     this.setState({
       dateObject: dateObject
     });
+    this.props.setDate && this.props.setDate(dateObject);
   };
 
   onDayClick = (e, d) => {
@@ -67,6 +69,7 @@ export default class Calendar extends React.Component {
         console.log("SELECTED DAY: ", this.state.selectedDay);
       }
     );
+    this.props.setDate && this.props.setDate(this.state.dateObject);
   };
 
   render() {
@@ -86,7 +89,7 @@ export default class Calendar extends React.Component {
                          data={moment.months()}
                          setMonth={this.setMonth} />
             </span>
-          <span>
+          <span className="calendar-label">
             <YearList defaultYear={defaultYear} setYear={this.setYear} />
           </span>
           <span
