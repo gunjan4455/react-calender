@@ -23,7 +23,7 @@ npm install react-country-select --save
 #### Params :
 
 
-######Not Mandatory
+#####Not Mandatory
 ```
 
 setDate={<your custom date handler>} //for single selection

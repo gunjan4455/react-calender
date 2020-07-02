@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba8b5b94-4c06-4467-b65d-4ceefe48e7ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/calendar/MonthList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/calendar/MonthList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/calendar/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/calendar/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/calendar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/calendar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -49,14 +46,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/calendar/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="85" column="12" lean-forward="true" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+            <state relative-caret-position="471">
+              <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -144,9 +150,9 @@
       <find>selectedDay</find>
       <find>conso</find>
       <find>.tail-datetime-calendar .calendar-navi</find>
-      <find>onDayClick</find>
       <find>.tail-datetime-calendar .calendar-date table tbody tr &gt; *:hover {</find>
       <find>console.log</find>
+      <find>onDayClick</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/components/calendar</dir>
@@ -166,6 +172,7 @@
         <option value="$PROJECT_DIR$/src/components/calendar/MonthList.js" />
         <option value="$PROJECT_DIR$/src/components/calendar/calendar.css" />
         <option value="$PROJECT_DIR$/src/components/calendar/index.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -243,7 +250,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593629463357</updated>
-      <workItem from="1593629464757" duration="17982000" />
+      <workItem from="1593629464757" duration="18236000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore added">
       <created>1593630359614</created>
@@ -252,11 +259,18 @@
       <option name="project" value="LOCAL" />
       <updated>1593630359614</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Css improved">
+      <created>1593691114356</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593691114356</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17982000" />
+    <option name="totallyTimeSpent" value="18236000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -270,6 +284,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
@@ -396,11 +411,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/calendar/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="85" column="12" lean-forward="true" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+        <state relative-caret-position="471">
+          <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
