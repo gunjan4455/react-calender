@@ -2,7 +2,7 @@ import React from 'react';
 
 import RenderTable from './RenderTable';
 
-const CalendarTable = ({ weekDayShortName, dateObject, onDayClick, onPrevNext }) => {
+const CalendarTable = ({ weekDayShortName, dateObject, onDayClick, onPrevNext, selectedDay }) => {
   return (
     <div className="calendar-date">
       <table className="calendar-day">
@@ -13,7 +13,8 @@ const CalendarTable = ({ weekDayShortName, dateObject, onDayClick, onPrevNext })
         <RenderTable key={dateObject}
                      dateObject={dateObject}
                      onDayClick={onDayClick}
-                     onPrevNext={onPrevNext}/>
+                     onPrevNext={onPrevNext}
+                     selectedDay={selectedDay}/>
         </tbody>
       </table>
     </div>

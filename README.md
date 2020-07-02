@@ -1,6 +1,6 @@
-# react-country-select
+# React Calendar
 
-[![npm package][npm-badge]](https://www.npmjs.com/package/react-demo-calendar)
+https://www.npmjs.com/package/react-demo-calendar
 
 # Project Title
 
@@ -23,11 +23,11 @@ npm install react-country-select --save
 #### Params :
 
 
-#####Not Mandatory
+##### Not Mandatory
 ```
 
-setDate={<your custom date handler>} //for single selection
-dateObject={<moment object>} //for multiple selection
+setDate={<your custom date handler>} 
+dateObject={<moment object>}
 
 ```
 ### Example
